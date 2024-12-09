@@ -11,18 +11,23 @@ def pytest_addoption(parser):
 @pytest.fixture(scope="function")
 def browser(request):
     language = request.config.getoption("language")
+    options_param = "--lang="
     chrome_options = Options()
     browser = None
     if language == "en":
         print("\nstart chrome browser with language en test..")
-        chrome_options.add_argument("--lang=" + language)
+        chrome_options.add_argument(options_param + language)
         browser = webdriver.Chrome(chrome_options)
     elif language == "fr":
         print("\nstart chrome browser with language fr test..")
-        chrome_options.add_argument("--lang=" + language)
+        chrome_options.add_argument(options_param + language)
+        browser = webdriver.Chrome(chrome_options)
+    elif language == "es":
+        print("\nstart chrome browser with language es test..")
+        chrome_options.add_argument(options_param + language)
         browser = webdriver.Chrome(chrome_options)
     else:
-        raise pytest.UsageError("--browser_name should be chrome or firefox")
+        raise pytest.UsageError("--language  not input when test run!")
 
 
 
