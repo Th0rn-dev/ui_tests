@@ -24,3 +24,15 @@ def test_should_add_product_in_basket(browser, link):
     product_page.should_be_add_to_basket_button()
     product_name, product_price = product_page.product_params()
     product_page.should_add_product_to_basket(product_name, product_price)
+
+
+def test_guest_cant_see_success_message_after_adding_product_to_basket():
+    assert False, "Test not implemented"
+
+
+def test_guest_cant_see_success_message():
+    assert False, "Test not implemented"
+
+
+def test_message_disappeared_after_adding_product_to_basket():
+    assert False, "Test not implemented"
